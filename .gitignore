@@ -1,0 +1,36 @@
+.env
+.env.*
+
+# Python / Flask
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+.Python
+env/
+venv/
+myvenv/
+
+# Node / Vite
+node_modules/
+client/node_modules/
+server/node_modules/
+dist/
+client/dist/
+
+# IDE / OS
+.vscode/
+.idea/
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local data / uploads
+server/uploads/
+
+
