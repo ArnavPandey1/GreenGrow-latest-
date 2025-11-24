@@ -3,6 +3,8 @@ import { useAuth } from "../hooks/useAuth";
 import { FaUserCircle } from "react-icons/fa";
 import bg from "/bg.jpg";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Profile() {
   const { user, isAuthenticated } = useAuth();
   const [editMode, setEditMode] = useState(false);
@@ -27,11 +29,11 @@ export default function Profile() {
       if (!isAuthenticated) return;
       try {
         const token = localStorage.getItem('access_token');
-        const res = await fetch("http://localhost:5000/api/profile", {
+        const res = await fetch(`${API_URL}/api/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
-        const url = data.user?.avatar_url ? `http://localhost:5000${data.user.avatar_url}?v=${Date.now()}` : "";
+        const url = data.user?.avatar_url ? `${API_URL}${data.user.avatar_url}?v=${Date.now()}` : "";
         setAvatarUrl(url);
         const u = data.user || {};
         setUsername(u.username || "");
@@ -55,7 +57,7 @@ export default function Profile() {
     setMessage("");
     try {
       const token = localStorage.getItem("access_token");
-      const res = await fetch("http://localhost:5000/api/profile", {
+      const res = await fetch(`${API_URL}/api/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -108,14 +110,14 @@ export default function Profile() {
       formData.append("avatar", file);
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/api/profile/avatar", {
+        const res = await fetch(`${API_URL}/api/profile/avatar`, {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
         });
         const data = await res.json();
         if (res.ok && (data.avatar_public_url || data.avatar_url)) {
-          const publicUrl = data.avatar_public_url ? `http://localhost:5000${data.avatar_public_url}` : `http://localhost:5000${data.avatar_url}?v=${Date.now()}`;
+          const publicUrl = data.avatar_public_url ? `${API_URL}${data.avatar_public_url}` : `${API_URL}${data.avatar_url}?v=${Date.now()}`;
           setAvatarUrl(publicUrl);
           setMessage("Avatar updated!");
         } else {
@@ -135,7 +137,7 @@ export default function Profile() {
     setMessage("");
     try {
       const token = localStorage.getItem('access_token');
-      await fetch("http://localhost:5000/api/profile/avatar", {
+      await fetch(`${API_URL}/api/profile/avatar`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

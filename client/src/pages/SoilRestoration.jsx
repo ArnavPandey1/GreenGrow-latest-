@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaSeedling, FaLeaf, FaHandsHelping } from "react-icons/fa";
 import bg from "/bg.jpg";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 function SoilRestoration() {
   const [lastCrop, setLastCrop] = useState("");
   const [results, setResults] = useState([]);
@@ -14,7 +16,7 @@ function SoilRestoration() {
     setError("");
     setResults([]);
     try {
-      const res = await fetch("http://localhost:5000/api/soil-restoration", {
+      const res = await fetch(`${API_URL}/api/soil-restoration`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ last_crop: lastCrop })

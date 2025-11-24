@@ -3,7 +3,8 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 
 // Configure axios defaults
-axios.defaults.baseURL = 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+axios.defaults.baseURL = API_URL;
 
 // Add request interceptor to include token
 axios.interceptors.request.use(

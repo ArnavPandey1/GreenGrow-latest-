@@ -4,6 +4,8 @@ import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function Navbar() {
   const { user, logout, isAuthenticated } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -105,7 +107,7 @@ export default function Navbar() {
                   >
                     {user?.avatar_url ? (
                       <img
-                        src={`http://localhost:5000${user.avatar_url}`}
+                        src={`${API_URL}${user.avatar_url}`}
                         alt="Profile"
                         className="w-8 h-8 rounded-full object-cover ring-2 ring-green-300 shadow-sm"
                       />
