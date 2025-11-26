@@ -1,5 +1,7 @@
 ## GreenGrow – Smart Agriculture Platform
 
+##Deployed Link :- https://greengrow-client.onrender.com/
+
 GreenGrow is a full‑stack web application that helps farmers make better decisions with **AI‑powered crop recommendations** and **soil restoration guidance**, wrapped in a secure, modern web experience.
 The project is split into a **React (Vite) frontend** and a **Flask API backend** with MongoDB and ML models.
 
@@ -137,3 +139,5 @@ See `server/app.py` for full request/response details and validations.
 
 This project is currently for educational / internal use.  
 Add a formal license file if you plan to open‑source or distribute it. 
+
+
