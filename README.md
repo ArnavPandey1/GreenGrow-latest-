@@ -1,4 +1,4 @@
-## GreenGrow – AI Powered Advancing Agriculture 
+## GreenGrow – Advancing Agriculture 
 
 ##Deployed Link :- https://greengrow-client.onrender.com/
 
