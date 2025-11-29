@@ -1,6 +1,6 @@
 ## GreenGrow – Advancing Agriculture 
 
-##Deployed Link :- https://greengrow-client.onrender.com/
+##Deployed Link :- https://green-grow-nine.vercel.app/
 
 GreenGrow is a full‑stack web application that helps farmers make better decisions with **AI‑powered crop recommendations** and **soil restoration guidance**, wrapped in a secure, modern web experience.
 The project is split into a **React (Vite) frontend** and a **Flask API backend** with MongoDB and ML models.
